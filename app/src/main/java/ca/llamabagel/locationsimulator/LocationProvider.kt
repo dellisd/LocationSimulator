@@ -9,8 +9,8 @@ import com.google.android.gms.maps.model.LatLng
 /**
  * @author derek
  */
-class LocationProvider(val providerName: String, val context: Context) {
-    val locationManager: LocationManager by lazy { context.getSystemService(Context.LOCATION_SERVICE) as LocationManager }
+class LocationProvider(private val providerName: String, private val context: Context) {
+    private val locationManager: LocationManager by lazy { context.getSystemService(Context.LOCATION_SERVICE) as LocationManager }
 
     init {
         locationManager.addTestProvider(providerName, false, false, false, false, false, true, true, 0, 5)
